@@ -1,5 +1,5 @@
 /* -LICENSE-START-
-** Copyright (c) 2014 Blackmagic Design
+** Copyright (c) 2015 Blackmagic Design
 **
 ** Permission is hereby granted, free of charge, to any person or organization
 ** obtaining a copy of the software and accompanying documentation covered by
@@ -42,7 +42,7 @@
 
 // Interface ID Declarations
 
-BMD_CONST REFIID IID_IDeckLinkConfiguration                       = /* 1E69FCF6-4203-4936-8076-2A9F4CFD50CB */ {0x1E,0x69,0xFC,0xF6,0x42,0x03,0x49,0x36,0x80,0x76,0x2A,0x9F,0x4C,0xFD,0x50,0xCB};
+BMD_CONST REFIID IID_IDeckLinkConfiguration                       = /* CB71734A-FE37-4E8D-8E13-802133A1C3F2 */ {0xCB,0x71,0x73,0x4A,0xFE,0x37,0x4E,0x8D,0x8E,0x13,0x80,0x21,0x33,0xA1,0xC3,0xF2};
 
 /* Enum BMDDeckLinkConfigurationID - DeckLink Configuration ID */
 
@@ -72,9 +72,10 @@ enum _BMDDeckLinkConfigurationID {
     bmdDeckLinkConfigFieldFlickerRemoval                         = /* 'fdfr' */ 0x66646672,
     bmdDeckLinkConfigHD1080p24ToHD1080i5994Conversion            = /* 'to59' */ 0x746F3539,
     bmdDeckLinkConfig444SDIVideoOutput                           = /* '444o' */ 0x3434346F,
-    bmdDeckLinkConfigSingleLinkVideoOutput                       = /* 'sglo' */ 0x73676C6F,
     bmdDeckLinkConfigBlackVideoOutputDuringCapture               = /* 'bvoc' */ 0x62766F63,
     bmdDeckLinkConfigLowLatencyVideoOutput                       = /* 'llvo' */ 0x6C6C766F,
+    bmdDeckLinkConfigDownConversionOnAllAnalogOutput             = /* 'caao' */ 0x6361616F,
+    bmdDeckLinkConfigSMPTELevelAOutput                           = /* 'smta' */ 0x736D7461,
 
     /* Video Output Integers */
 
@@ -85,6 +86,7 @@ enum _BMDDeckLinkConfigurationID {
     bmdDeckLinkConfigVideoOutputIdleOperation                    = /* 'voio' */ 0x766F696F,
     bmdDeckLinkConfigDefaultVideoOutputMode                      = /* 'dvom' */ 0x64766F6D,
     bmdDeckLinkConfigDefaultVideoOutputModeFlags                 = /* 'dvof' */ 0x64766F66,
+    bmdDeckLinkConfigSDIOutputLinkConfiguration                  = /* 'solc' */ 0x736F6C63,
 
     /* Video Output Floats */
 
@@ -122,6 +124,10 @@ enum _BMDDeckLinkConfigurationID {
     bmdDeckLinkConfigVideoInputSVideoLumaGain                    = /* 'islg' */ 0x69736C67,
     bmdDeckLinkConfigVideoInputSVideoChromaGain                  = /* 'iscg' */ 0x69736367,
 
+    /* Audio Input Flags */
+
+    bmdDeckLinkConfigMicrophonePhantomPower                      = /* 'mphp' */ 0x6D706870,
+
     /* Audio Input Integers */
 
     bmdDeckLinkConfigAudioInputConnection                        = /* 'aicn' */ 0x6169636E,
@@ -133,6 +139,7 @@ enum _BMDDeckLinkConfigurationID {
     bmdDeckLinkConfigAnalogAudioInputScaleChannel3               = /* 'ais3' */ 0x61697333,
     bmdDeckLinkConfigAnalogAudioInputScaleChannel4               = /* 'ais4' */ 0x61697334,
     bmdDeckLinkConfigDigitalAudioInputScale                      = /* 'dais' */ 0x64616973,
+    bmdDeckLinkConfigMicrophoneInputGain                         = /* 'micg' */ 0x6D696367,
 
     /* Audio Output Integers */
 
@@ -144,7 +151,21 @@ enum _BMDDeckLinkConfigurationID {
     bmdDeckLinkConfigAnalogAudioOutputScaleChannel2              = /* 'aos2' */ 0x616F7332,
     bmdDeckLinkConfigAnalogAudioOutputScaleChannel3              = /* 'aos3' */ 0x616F7333,
     bmdDeckLinkConfigAnalogAudioOutputScaleChannel4              = /* 'aos4' */ 0x616F7334,
-    bmdDeckLinkConfigDigitalAudioOutputScale                     = /* 'daos' */ 0x64616F73
+    bmdDeckLinkConfigDigitalAudioOutputScale                     = /* 'daos' */ 0x64616F73,
+    bmdDeckLinkConfigHeadphoneVolume                             = /* 'hvol' */ 0x68766F6C,
+
+    /* Device Information Strings */
+
+    bmdDeckLinkConfigDeviceInformationLabel                      = /* 'dila' */ 0x64696C61,
+    bmdDeckLinkConfigDeviceInformationSerialNumber               = /* 'disn' */ 0x6469736E,
+    bmdDeckLinkConfigDeviceInformationCompany                    = /* 'dico' */ 0x6469636F,
+    bmdDeckLinkConfigDeviceInformationPhone                      = /* 'diph' */ 0x64697068,
+    bmdDeckLinkConfigDeviceInformationEmail                      = /* 'diem' */ 0x6469656D,
+    bmdDeckLinkConfigDeviceInformationDate                       = /* 'dida' */ 0x64696461,
+
+    /* Deck Control Integers */
+
+    bmdDeckLinkConfigDeckControlConnection                       = /* 'dcco' */ 0x6463636F
 };
 
 // Forward Declarations
